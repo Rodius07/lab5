@@ -1,7 +1,6 @@
 
 import re
 import csv
-from typing import List
 
 
 TASK1_FILE = 'task1-en.txt'
@@ -9,7 +8,7 @@ TASK2_FILE = 'task2.html'
 TASK3_FILE = 'task3.txt'
 OUTPUT_FILE = 'output.csv'
 
-def task1_find_patterns(filename: str) -> List[str]:
+def task1_find_patterns(filename):
 
     with open(filename, encoding='utf-8') as f:
         text = f.read()
@@ -20,19 +19,18 @@ def task1_find_patterns(filename: str) -> List[str]:
     return matches
 
 
-def task2_extract_content(filename: str) -> List[str]:
+def task2_extract_content(filename):
 
     with open(filename, encoding='utf-8') as f:
         text = f.read()
 
-    # Паттерн для извлечения значения атрибута content
     pattern = r'content="([^"]*)"'
     matches = re.findall(pattern, text)
 
     return matches
 
 
-def task3_extract_user_data(filename: str) -> dict:
+def task3_extract_user_data(filename):
 
     with open(filename, encoding='utf-8') as f:
         text = f.read()
@@ -56,7 +54,7 @@ def task3_extract_user_data(filename: str) -> dict:
     return data
 
 
-def save_to_csv(data: dict, filename: str) -> None:
+def save_to_csv(data, filename):
 
     with open(filename, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
