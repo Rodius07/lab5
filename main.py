@@ -59,11 +59,9 @@ def save_to_csv(data, filename):
     with open(filename, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
 
-        # Заголовки
         headers = ['ID', 'Фамилия', 'Почта', 'Дата регистрации', 'Сайт']
         writer.writerow(headers)
 
-        # Данные (транспонируем массивы с помощью zip)
         for row in zip(
             data['id'],
             data['surname'],
